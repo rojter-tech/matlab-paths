@@ -1,0 +1,269 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Lab0</title><meta name="generator" content="MATLAB 9.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-04-04"><meta name="DC.source" content="Lab0.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Laboration 0</a></li><li><a href="#2">Ber&auml;kning av Sannolikheter</a></li><li><a href="#3">binocdf</a></li><li><a href="#4">binopdf</a></li><li><a href="#5">normcdf</a></li><li><a href="#6">normpdf</a></li><li><a href="#7">expcdf</a></li><li><a href="#8">exppdf</a></li><li><a href="#9">Subplot</a></li></ul></div><h2>Laboration 0<a name="1"></a></h2><p>F&ouml;rberedande labtillf&auml;lle</p><pre class="codeinput"><span class="comment">%Skr&auml;pkod Upg 0 - 5</span>
+clear, clc
+a = 1;
+b = sqrt(36);
+width = 3.89;
+w = rand(4  , 1);
+<span class="comment">% exp log sin asin cos acos tan atan</span>
+
+<span class="comment">%x = 0.5:0.1:2;</span>
+<span class="comment">%y = log(x);</span>
+<span class="comment">%plot(x,y)</span>
+
+n = 1000;
+ev = 1;
+y = exprnd(ev, n, 1);
+u = mean(y);
+disp([<span class="string">'Medelv&auml;rdet av x &auml;r: '</span> num2str(u)]);
+y1 = sort(y);
+x1 = (1:1:n)';
+<span class="comment">%{
+</span><span class="comment">hold on, clf(1), figure(1)
+</span><span class="comment">plot(x1,y1, 'g');
+</span><span class="comment">line(x1, ones(length(x1),1)*u);
+</span><span class="comment">hold off
+</span><span class="comment">%}
+</span>
+min = 0.7;
+xbool = y&gt;min;
+mxb = mean(xbool);
+disp([<span class="string">'Svanssannolikheten att v&auml;rdet &auml;r st&ouml;rre &auml;n '</span> num2str(min) <span class="string">' &auml;r ber&auml;knad till '</span> num2str(mxb)])
+</pre><pre class="codeoutput">Medelv&auml;rdet av x &auml;r: 1.001
+Svanssannolikheten att v&auml;rdet &auml;r st&ouml;rre &auml;n 0.7 &auml;r ber&auml;knad till 0.48
+</pre><h2>Ber&auml;kning av Sannolikheter<a name="2"></a></h2><p>binocdf, binopdf, normcdf, normpdf, expcdf, exppdf</p><pre class="codeinput">clear, clc
+MU = 5;
+N = 1000;
+P = MU/N;
+SIGMA = 1;
+LB = 0;
+UB = 10;
+</pre><h2>binocdf<a name="3"></a></h2><p>Kumulativ sannolikhetst&auml;thet (sannolikheten) f&ouml;r x &gt; 0, f&ouml;redelad kring x = N * P givet N f&ouml;rs&ouml;k och sannolikheten P diskret f&ouml;rdelade f&ouml;r x &gt; 0 som tillh&ouml;r de naturliga talen.</p><pre class="codeinput">x1 = LB:1/N:UB;
+y1 = binocdf(x1,N,P);
+</pre><h2>binopdf<a name="4"></a></h2><p>Sannolikhetst&auml;teten kring x = N * P givet N f&ouml;rs&ouml;k och sannolikheten P diskret f&ouml;rdelade f&ouml;r x &gt; 0 som tillh&ouml;r de naturliga talen.</p><pre class="codeinput">x2 = 1/N:1/N:10;
+y2 = binopdf(x2,N,P);
+</pre><h2>normcdf<a name="5"></a></h2><p>Kumulativ sannolikhetst&auml;thet</p><pre class="codeinput">x3 = LB:1/N:UB;
+y3 = normcdf(x3,MU,SIGMA);
+</pre><h2>normpdf<a name="6"></a></h2><p>Sannolikhetst&auml;teten</p><pre class="codeinput">x4 = LB:1/N:UB;
+y4 = normpdf(x4,MU,SIGMA);
+</pre><h2>expcdf<a name="7"></a></h2><p>Kumulativ sannolikhetst&auml;thet</p><pre class="codeinput">x5 = LB:1/N:UB;
+y5 = expcdf(x5,MU);
+</pre><h2>exppdf<a name="8"></a></h2><p>Sannolikhetst&auml;teten</p><pre class="codeinput">x6 = LB:1/N:UB;
+y6 = exppdf(x6,MU);
+</pre><h2>Subplot<a name="9"></a></h2><pre class="codeinput">figure(1), clf(1), hold <span class="string">on</span>
+
+subplot(2,3,1)
+plot(x1,y1);
+title(<span class="string">'binocdf'</span>)
+
+subplot(2,3,4)
+plot(x2,y2);
+title(<span class="string">'binopdf'</span>)
+
+subplot(2,3,2)
+plot(x3,y3);
+title(<span class="string">'normcdf'</span>)
+
+subplot(2,3,5)
+plot(x4,y4);
+title(<span class="string">'normpdf'</span>)
+
+subplot(2,3,3)
+plot(x5,y5);
+title(<span class="string">'expcdf'</span>)
+
+subplot(2,3,6)
+plot(x6,y6);
+title(<span class="string">'exppdf'</span>)
+
+hold <span class="string">off</span>
+
+<span class="comment">%%%% End Subplot %%%%</span>
+</pre><img vspace="5" hspace="5" src="Lab0_01.png" style="width:560px;height:420px;" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Laboration 0
+% Förberedande labtillfälle
+%
+
+%Skräpkod Upg 0 - 5
+clear, clc
+a = 1;
+b = sqrt(36);
+width = 3.89;
+w = rand(4  , 1);
+% exp log sin asin cos acos tan atan
+
+%x = 0.5:0.1:2;
+%y = log(x);
+%plot(x,y)
+
+n = 1000;
+ev = 1;
+y = exprnd(ev, n, 1);
+u = mean(y);
+disp(['Medelvärdet av x är: ' num2str(u)]);
+y1 = sort(y);
+x1 = (1:1:n)';
+%{
+hold on, clf(1), figure(1)
+plot(x1,y1, 'g');
+line(x1, ones(length(x1),1)*u);
+hold off
+%}
+
+min = 0.7;
+xbool = y>min;
+mxb = mean(xbool);
+disp(['Svanssannolikheten att värdet är större än ' num2str(min) ' är beräknad till ' num2str(mxb)])
+
+%% Beräkning av Sannolikheter
+% binocdf, binopdf, normcdf, normpdf, expcdf, exppdf
+% 
+clear, clc
+MU = 5;
+N = 1000;
+P = MU/N;
+SIGMA = 1;
+LB = 0;
+UB = 10;
+
+%%% binocdf
+% Kumulativ sannolikhetstäthet (sannolikheten) för x > 0, föredelad kring  
+% x = N * P givet N försök och sannolikheten P diskret fördelade för
+% x > 0 som tillhör de naturliga talen.
+%
+x1 = LB:1/N:UB;
+y1 = binocdf(x1,N,P);
+
+%%% binopdf
+% Sannolikhetstäteten kring x = N * P givet N försök och sannolikheten P
+% diskret fördelade för x > 0 som tillhör de naturliga talen.
+
+x2 = 1/N:1/N:10;
+y2 = binopdf(x2,N,P);
+
+%%% normcdf
+% Kumulativ sannolikhetstäthet
+%
+x3 = LB:1/N:UB;
+y3 = normcdf(x3,MU,SIGMA);
+
+%%% normpdf
+% Sannolikhetstäteten
+%
+
+x4 = LB:1/N:UB;
+y4 = normpdf(x4,MU,SIGMA);
+
+%%% expcdf
+% Kumulativ sannolikhetstäthet
+%
+x5 = LB:1/N:UB;
+y5 = expcdf(x5,MU);
+
+%%% exppdf
+% Sannolikhetstäteten
+%
+x6 = LB:1/N:UB;
+y6 = exppdf(x6,MU);
+
+%%% Subplot
+figure(1), clf(1), hold on
+
+subplot(2,3,1)
+plot(x1,y1);
+title('binocdf')
+
+subplot(2,3,4)
+plot(x2,y2);
+title('binopdf')
+
+subplot(2,3,2)
+plot(x3,y3);
+title('normcdf')
+
+subplot(2,3,5)
+plot(x4,y4);
+title('normpdf')
+
+subplot(2,3,3)
+plot(x5,y5);
+title('expcdf')
+
+subplot(2,3,6)
+plot(x6,y6);
+title('exppdf')
+
+hold off
+
+%%%% End Subplot %%%%
+
+##### SOURCE END #####
+--></body></html>
