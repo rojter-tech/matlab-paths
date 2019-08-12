@@ -1,12 +1,12 @@
-%% Slumpgang pa 1x1 kvadrat
+%% Slumpgång på 1x1 kvadrat
 %
 
 clear, clc
 
 % %%%%%%%%%%%%%%% Start parameters %%%%%%%%%%%%%%%
 startpoint = [0.5 0.5]; % Choose betwen 0 and 1
-stepsize = 2;
-speed = 50000;
+stepsize = 1;
+speed = 5000;
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
