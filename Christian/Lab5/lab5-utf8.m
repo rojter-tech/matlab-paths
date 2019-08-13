@@ -146,43 +146,4 @@ end
 
 function [t,y] = rk4(u0,T,n)
 %Runge-Kutta 4
-%   Den här metoden approximerar differentialekvationen i i Uppgift B
-%   med hjälp av runge kutta.
-%   indata: (u0,T,n,alpha)
-%   utdata: [t,y]
-L = 4;
-g = 9.81;
-dt = T/n;
-
-y = zeros(n,2);
-y(1,:) = u0;
-f = @(th) [th(2),-(g/L)*sin(th(1))];
-
-for i = 1:n
-    u2_ = y(i,:);
-    fa = f(u2_);
-    fb = f(u2_+dt/2.*fa);
-    fc = f(u2_+dt/2.*fb);
-    fd = f(u2_+dt.*fc);
-    y(i+1,:) = y(i,:) + (dt/6)*(fa+2*fb+2*fc+fd);
-end
-
-t = (0:dt:T)';
-
-end
-
-
-
-function anim(tout, fi, L) 
-
-for i=1:length(tout)-1 
-    x0 = L*sin(fi(i));
-    y0 = -L*cos(fi(i)); 
-    plot([0,x0],[0,y0],'-o') 
-    axis('equal') 
-    axis([-1 1 -1 0]*1.2*L) 
-    drawnow
-    pause(tout(i+1)-tout(i))
-end
-
-end
+%   Den h
