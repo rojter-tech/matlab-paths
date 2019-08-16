@@ -1,5 +1,5 @@
-%s = settings;s.matlab.desktop.DisplayScaleFactor
-%s.matlab.desktop.DisplayScaleFactor.PersonalValue = 1.8
+s = settings;s.matlab.desktop.DisplayScaleFactor
+s.matlab.desktop.DisplayScaleFactor.PersonalValue = 1.5
 
 %%
 x = linspace(0,10);
