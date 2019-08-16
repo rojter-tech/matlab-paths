@@ -1,2 +1,8 @@
 .png
 *.png
+.7z
+*.7z
+.tar.gz
+*.tar.gz
+.zip
+*.zip
